@@ -123,9 +123,9 @@ var states = {
 //Now, loop through your states object and if the states population is greater than 30K, alert that state.
 
 //Code Here
-for(var key in states)
+for (var key in states)
 {
-    if(states[key] > 30000)
+    if (states[key] > 30000)
     {
         //alert(key);
     }
@@ -145,9 +145,9 @@ var user1 = {
 /*Above you're given a user object. Loop through the user object checking to make sure
  that each value is truthy. If it's not truthy, remove it from the object. */
 //Code Here
-for(var key in user1)
+for (var key in user1)
 {
-    if(!user1[key])
+    if (!user1[key])
     {
         delete user1[key];
     }
@@ -155,7 +155,7 @@ for(var key in user1)
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
 //Code Here
 user1.name = "Tanner";
-user1.username= "teej";
+user1.username = "teej";
 
 //NEXT PROBLEM
 
@@ -176,11 +176,12 @@ var user2 = {
 // name -> 'Tyler S. McGinnis', email -> 'tyler.mcginnis@devmounta.in'. Make that change.
 
 //Code Here
-
+user2.name = "Tyler S. McGinnis"
+user2.email = "tyler.mcginnis@devmounta.in"
 //Now call the sayEmail method that's on the user object which will alert the users email
 
 //Code Here
-
+//user2.sayEmail();
 
 //NEXT PROBLEM
 
@@ -188,17 +189,25 @@ var user2 = {
 //Create an empty object called methodCollection.
 
 //Code Here
-
+var methodCollection = {};
 /*Now add two methods (functions that are properties on objects) to your methodCollection
  object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
 
 //Code Here
-
+methodCollection.alertHello = function ()
+{
+    alert('hello');
+};
+methodCollection.logHello = function ()
+{
+    console.log('hello');
+};
 //Now call your alertHello and logHello methods.
 
 //Code Here
-
+methodCollection.alertHello()
+methodCollection.logHello();
 
 //NEXT PROBLEM
 
@@ -207,7 +216,14 @@ var user2 = {
 // parameters and returns a new object with all of the information that you passed in.
 
 //Code Here
-
+function makePerson(name, birthday, ssn)
+{
+    return {
+        name: name,
+        birthday: birthday,
+        ssn: ssn
+    };
+}
 
 //NEXT PROBLEM
 
@@ -215,7 +231,14 @@ var user2 = {
 // Create a function called makeCard which takes in cardNumber, expirationDate, and securityCode to make a Credit Card object and returns that object so that whenever you invoke makeCard, you get a brand new credit card.
 
 //Code Here
-
+function makeCard(cardNumber, expirationDate, securityCode)
+{
+    return {
+        cardNumber: cardNumber,
+        expirationDate: expirationDate,
+        securityCode: securityCode
+    };
+}
 
 //NEXT PROBLEM
 
@@ -226,3 +249,16 @@ var user2 = {
  */
 
 //Code Here
+function bindCard(person, creditCard)
+{
+    var binded = {};
+    for(var key in person)
+    {
+        binded[key] = person[key];
+    }
+    for(var key in creditCard)
+    {
+        binded[key] = creditCard[key];
+    }
+    return binded;
+}
